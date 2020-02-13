@@ -3,6 +3,7 @@
 // sinobit-specific qstrs below:
 Q(sinobit)
 Q(brightness)
+Q(text_width)
 Q(pad0)
 Q(pad1)
 Q(pad2)

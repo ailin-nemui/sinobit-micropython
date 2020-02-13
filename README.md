@@ -24,6 +24,19 @@ to have a lot of trouble (Ubuntu 12.04 LTS has old packages, 16.04 LTS has bugs 
 Vagrant integration).  Windows and the Windows 10 Linux subsystem is a total unknown.
 You have been warned._
 
+**Be sure to clone this repository with the --recursive option to make sure necessary
+submodules are downloaded.  Alternatively you can run git submodule init after cloning:***
+```
+git clone --recursive https://github.com/tdicola/sinobit-micropython.git
+```
+or:
+```
+git clone https://github.com/tdicola/sinobit-micropython.git
+cd sinobit-micropython
+git submodule init
+git submodule update
+```
+
 The source code is a yotta application and needs yotta to build, along
 with an ARM compiler toolchain (eg arm-none-eabi-gcc and friends).
 
@@ -33,7 +46,7 @@ sudo add-apt-repository -y ppa:team-gcc-arm-embedded
 sudo add-apt-repository -y ppa:pmiller-opensource/ppa
 sudo apt-get update
 sudo apt-get install cmake ninja-build gcc-arm-none-eabi srecord libssl-dev
-pip3 install yotta
+pip3 install yotta cogapp
 ```
 
 Mac OSX users can install some of the needed pacakges with [Homebrew](https://brew.sh/).
@@ -42,7 +55,7 @@ downloaded and its /bin/ directory in your path. Other depdencies can be install
 Homebrew and Python's pip package manager (_this is rough information that needs to be verified_):
 ```
 brew install cmake ninja srecord python3
-pip3 install yotta
+pip3 install yotta cogapp
 ```
 
 Once all packages are installed, use yotta to build.  You will need an ARM

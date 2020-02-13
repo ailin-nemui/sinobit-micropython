@@ -12,6 +12,8 @@ language created by Damien George that can run on small single board computers
 like the BBC micro:bit. This project is a fork of MicroPython for the BBC
 micro:bit that's intended to run and support the hardware of the sino:bit.
 
+-   **[Getting Started & Overview](https://learn.adafruit.com/sino-bit-micropython)** - Guide
+    on the Adafruit Learning System to help get started using sino:bit MicroPython.  Start here!
 -   **[Code Editor]({{ site.url }}{{ site.baseurl }}/editor/editor.html)** - Write sino:bit MicroPython code directly in your
     browser and download a firmware to run right on your sino:bit!  This is a
     port of the BBC micro:bit web editor to be compatible with the sino:bit
@@ -78,6 +80,21 @@ _This is currently a brain dump of some ideas, goals, to-dos for this project._
 -   Add support for Chinese text rendering on the matrix.  There is a lot of
     work to investigate here, particularly with text encodings, character sets,
     character representations and rendering.
+    -   Consider using this 12x12 font as a base: https://github.com/SolidZORO/zpix-pixel-font
+    -   Good suggestion to scan source script (like in web editor) and extract
+        the set of unicode characters in use to inject into the firmware:
+        https://twitter.com/sceptic_int/status/963668006625861635  This
+        could allow a wide range of characters but without dynamic use of them.
+    -   Right now have about ~10kb free in firmware (with no loss of modules
+        or features yet).  If can get up to ~100kb free could fit ~6k characters.
+    -   Good reference material too: https://r12a.github.io/scripts/chinese/
+        And the GB2312 standard: https://en.wikipedia.org/wiki/GB_2312  Also DB
+        of characters here: http://hanzidb.org/character-list/general-standard
+    -   Also consider other languages as the zpix font includes Japanese and
+        accented English characters.  There's a Hindi font here too: https://github.com/nishapoyarekar/Sinobit/tree/indic
+    -   Entire unicode font in 16x16 and 8x16 size: http://unifoundry.com/unifont.html
+    -   __Language support is starting to come together!  See a preview here: 
+        https://twitter.com/tdicola/status/965489097769828352__
 -   Backwards compatibility with the micro:bit 5x5 LED display.  In theory it's
     possible to upsample drawing commands intended for the micro:bit's 5x5
     display to instead target 2x2 pixel chunks on the 12x12 display (with an
@@ -96,6 +113,8 @@ _This is currently a brain dump of some ideas, goals, to-dos for this project._
     dropping down to a basic usage of Nordic or mBed's hardware access layer would
     save flash space.  Support for the board peripherals like accelerometer and
     magnetomer could be added as simple C extensions.
+    -   microbit-dal usage:
+        -   Font data (MicroBitFont.cpp)
 -   Work on renaming from micro:bit to sino:bit internally.  The microbit module
     should ideally be retained for compatibility with existing micro:bit MicroPython
     code.  However much of the project structure, code files, etc. currently still

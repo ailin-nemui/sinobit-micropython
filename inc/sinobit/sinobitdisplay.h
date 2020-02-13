@@ -1,6 +1,4 @@
 /*
- * This file is part of the Micro Python project, http://micropython.org/
- *
  * The MIT License (MIT)
  *
  * Copyright (c) 2018 Tony DiCola
@@ -23,20 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-#ifndef __MICROPY_INCLUDED_SIMOBIT_DISPLAY_H__
-#define __MICROPY_INCLUDED_SIMOBIT_DISPLAY_H__
+#ifndef __SINOBIT_DISPLAY_H__
+#define __SINOBIT_DISPLAY_H__
 
 extern "C" {
 
-    void framebuffer_set(uint8_t x, uint8_t y, bool value);
+#include <cstdint>
 
-    bool framebuffer_get(uint8_t x, uint8_t y);
+void framebuffer_set(uint8_t x, uint8_t y, bool value);
 
-    void framebuffer_write();
+bool framebuffer_get(uint8_t x, uint8_t y);
 
-    void framebuffer_fill(bool value);
+void framebuffer_write();
 
-    void sinobit_display_init();
+void framebuffer_fill(bool value);
+
+void sinobit_display_init();
 
 }
 

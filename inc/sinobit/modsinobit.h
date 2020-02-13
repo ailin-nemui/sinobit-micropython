@@ -1,6 +1,4 @@
 /*
- * This file is part of the Micro Python project, http://micropython.org/
- *
  * The MIT License (MIT)
  *
  * Copyright (c) 2018 Tony DiCola
@@ -23,8 +21,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-#ifndef __MICROPY_INCLUDED_SIMOBIT_MODSINOBIT_H__
-#define __MICROPY_INCLUDED_SIMOBIT_MODSINOBIT_H__
+#ifndef __MODSINOBIT_H__
+#define __MODSINOBIT_H__
+
+#include "py/obj.h"
 
 extern const mp_obj_module_t sinobitdisplay_module;
 
