@@ -36,18 +36,32 @@ extern "C" {
 #include "nrf_gpio.h"
 #include "py/mphal.h"
 
+#define SINOBIT
 
 const microbit_pin_obj_t microbit_p0_obj = {{&microbit_touch_pin_type}, 0, MICROBIT_PIN_P0, MODE_UNUSED};
 const microbit_pin_obj_t microbit_p1_obj = {{&microbit_touch_pin_type}, 1, MICROBIT_PIN_P1, MODE_UNUSED};
 const microbit_pin_obj_t microbit_p2_obj = {{&microbit_touch_pin_type}, 2, MICROBIT_PIN_P2, MODE_UNUSED};
+#ifdef SINOBIT
+const microbit_pin_obj_t microbit_p3_obj = {{&microbit_touch_pin_type}, 3, MICROBIT_PIN_P3, MODE_UNUSED};
+const microbit_pin_obj_t microbit_p4_obj = {{&microbit_touch_pin_type}, 4, MICROBIT_PIN_P4, MODE_UNUSED};
+#else
 const microbit_pin_obj_t microbit_p3_obj = {{&microbit_ad_pin_type},   3,  MICROBIT_PIN_P3, MODE_DISPLAY};
 const microbit_pin_obj_t microbit_p4_obj = {{&microbit_ad_pin_type},   4,  MICROBIT_PIN_P4, MODE_DISPLAY};
+#endif
 const microbit_pin_obj_t microbit_p5_obj = {{&microbit_dig_pin_type},  5,  MICROBIT_PIN_P5, MODE_BUTTON};
+#ifdef SINOBIT
+const microbit_pin_obj_t microbit_p6_obj = {{&microbit_dig_pin_type},  6,  MICROBIT_PIN_P6, MODE_UNUSED};
+const microbit_pin_obj_t microbit_p7_obj = {{&microbit_dig_pin_type},  7,  MICROBIT_PIN_P7, MODE_UNUSED};
+const microbit_pin_obj_t microbit_p8_obj = {{&microbit_dig_pin_type},  8,  MICROBIT_PIN_P8, MODE_UNUSED};
+const microbit_pin_obj_t microbit_p9_obj = {{&microbit_dig_pin_type},  9,  MICROBIT_PIN_P9, MODE_UNUSED};
+const microbit_pin_obj_t microbit_p10_obj = {{&microbit_touch_pin_type}, 10, MICROBIT_PIN_P10, MODE_UNUSED};
+#else
 const microbit_pin_obj_t microbit_p6_obj = {{&microbit_dig_pin_type},  6,  MICROBIT_PIN_P6, MODE_DISPLAY};
 const microbit_pin_obj_t microbit_p7_obj = {{&microbit_dig_pin_type},  7,  MICROBIT_PIN_P7, MODE_DISPLAY};
 const microbit_pin_obj_t microbit_p8_obj = {{&microbit_dig_pin_type},  8,  MICROBIT_PIN_P8, MODE_UNUSED};
 const microbit_pin_obj_t microbit_p9_obj = {{&microbit_dig_pin_type},  9,  MICROBIT_PIN_P9, MODE_DISPLAY};
 const microbit_pin_obj_t microbit_p10_obj = {{&microbit_ad_pin_type},  10, MICROBIT_PIN_P10, MODE_DISPLAY};
+#endif
 const microbit_pin_obj_t microbit_p11_obj = {{&microbit_dig_pin_type}, 11, MICROBIT_PIN_P11, MODE_BUTTON};
 const microbit_pin_obj_t microbit_p12_obj = {{&microbit_dig_pin_type}, 12, MICROBIT_PIN_P12, MODE_UNUSED};
 const microbit_pin_obj_t microbit_p13_obj = {{&microbit_dig_pin_type}, 13, MICROBIT_PIN_P13, MODE_SPI};
